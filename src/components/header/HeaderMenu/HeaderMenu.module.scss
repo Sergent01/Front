@@ -1,0 +1,50 @@
+.menu__main {
+  background-color: #7fb77e;
+  color: black;
+  width: 80%;
+  position: fixed;
+  top: 0px;
+  z-index: 100;
+  transition-duration: 1s;
+  transition-property: width;
+
+
+
+  &.isActive {
+    width: 100%;
+    transition-duration: 1s;
+    transition-property: width;
+  }
+
+  nav {
+    ul {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      align-items: center;
+
+      list-style-type: none;
+
+      li:first-child {
+        color: black;
+        font-weight: bold;
+        margin-right: 100px;
+      }
+      li:last-child {
+        margin-left: 200px;
+      }
+
+      li {
+        margin: 0 20px;
+        cursor: pointer;
+        transition-duration: 0.5s;
+        transition-property: color;
+
+        &:hover {
+          color: #b1d7b4;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
