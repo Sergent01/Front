@@ -1,8 +1,9 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.scss'
+import Head from "next/head";
+import styles from "../styles/Home.module.scss";
 
-import HeroHome from '../components/heroHome/HeroHome'
-import Band1 from '../components/Bands/Band1/Band1'
+import HeroHome from "../components/heroHome/HeroHome";
+import Band1 from "../components/Bands/Band1/Band1";
+import BandImg from "../components/Bands/BandImg/BandImg";
 
 export default function Home() {
   return (
@@ -14,9 +15,10 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <HeroHome/>
-        <Band1/>
+        <HeroHome />
+        <Band1 />
+        <BandImg />
       </main>
     </div>
-  )
+  );
 }
