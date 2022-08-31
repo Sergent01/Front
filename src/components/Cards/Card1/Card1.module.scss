@@ -1,0 +1,61 @@
+.card1__main {
+  height: 87%;
+  width: 450px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 50px;
+  padding: 0 0 15px;
+
+  border: 1px black solid;
+  transition-property: box-shadow;
+  transition-duration: 0.5s;
+
+  &:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.303),
+      0 6px 20px 0 rgba(0, 0, 0, 0.303);
+    transition-property: box-shadow;
+    transition-duration: 0.5s;
+  }
+
+  .card1__hero {
+    background-image: url("https://poele-a-granules-france.com/formtst2020poele-adp/img/fond2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    height: 100%;
+
+    h3 {
+      text-transform: uppercase;
+      font-size: 1.6em;
+      margin-top: 20px;
+      padding: 20px;
+      color: black;
+      background-color: #ffffff75;
+    }
+  }
+  .card1__text {
+    color: black;
+    line-height: 23px;
+    padding: 10px;
+
+    span {
+      display: flex;
+      justify-content: center;
+      color: black;
+      padding: 15px;
+      font-weight: bold;
+    }
+  }
+  .card1__btn {
+    display: flex;
+    justify-content: center;
+  }
+}

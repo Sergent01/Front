@@ -1,0 +1,25 @@
+.Band1__main{
+    height: 500px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .Band1__text{
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30%;
+        margin: 50px;
+
+        h3{
+            margin: 20px 0;
+            color: black;
+            line-height: 28px;
+        }
+        p{
+            margin: 10px 0;
+            color: black;
+            line-height: 20px;
+
+        }
+    }
+}
