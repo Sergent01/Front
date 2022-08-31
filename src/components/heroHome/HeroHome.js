@@ -7,7 +7,7 @@ const HeroHome = () => {
     <div className={styles.HeroHome__main}>
       <div className={styles.HeroHome__text}>
         <h2>
-          Chauffez votre maison 🛑 pour moins de 400 euros par an <br/> grâce aux
+          Chauffez votre maison pour moins de 400 euros par an grâce aux
           Poêles à granulés nouvelle génération
         </h2>
         <p>

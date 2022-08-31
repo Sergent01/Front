@@ -16,6 +16,8 @@
   color: #b1d7b4;
   text-transform: uppercase;
 
+  padding: 60px 60px 0px;
+
   .HeroHome__text {
     display: flex;
     justify-content: center;
@@ -23,17 +25,19 @@
     width: 50%;
 
     h2 {
-      max-width: 70%;
+      max-width: 80%;
       font-size: 1em;
+      line-height: 53px;
+
     }
     p {
       max-width: 80%;
+      line-height: 23px;
     }
   }
   .HeroHome__form {
     height: 600px;
     width: 400px;
-    margin-top: 80px;
     background-color: #b1d7b4;
     border: solid black 1px;
 
