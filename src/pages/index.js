@@ -4,6 +4,7 @@ import styles from "../styles/Home.module.scss";
 import HeroHome from "../components/heroHome/HeroHome";
 import Band1 from "../components/Bands/Band1/Band1";
 import BandImg from "../components/Bands/BandImg/BandImg";
+import Band2 from "../components/Bands/Band2/Band2";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <HeroHome />
         <Band1 />
         <BandImg />
+        <Band2 />
       </main>
     </div>
   );

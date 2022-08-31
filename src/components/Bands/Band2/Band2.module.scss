@@ -1,0 +1,33 @@
+.band2__main {
+  height: 50%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .band2__img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    margin: 100px;
+
+    img {
+        margin: 30px;
+      height: 200px;
+      width: 300px;
+    }
+  }
+  .band2__card{
+    width: 50%;
+    border: solid 1px black;
+
+    p{
+        line-height: 23px;
+        color: black;
+        padding: 20px;
+    }
+  }
+}
