@@ -14,9 +14,9 @@
     transition: color .15s;
     &-black {
         background-color: black;
-        color: white;
+        color: #7fb77e;
         &:hover {
-            background: white;
+            background: #7fb77e;
             color: black;
             border: 1px solid black;
         }

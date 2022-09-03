@@ -2,6 +2,8 @@ import React from "react";
 
 import styles from "./HeroHome.module.scss";
 
+import Form from "../Form/Form";
+
 const HeroHome = () => {
   return (
     <div className={styles.HeroHome__main}>
@@ -19,7 +21,7 @@ const HeroHome = () => {
         </p>
       </div>
       <div className={styles.HeroHome__form}>
-        
+        <Form/>
       </div>
     </div>
   );
