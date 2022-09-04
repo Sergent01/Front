@@ -6,7 +6,7 @@ import StepButton from "../Step/StepButton/StepButton";
 import StepInput from "../Step/StepInput/StepInput";
 
 const Form = () => {
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(3);
   const lst = [
     "situation",
     "state",
@@ -57,6 +57,20 @@ const Form = () => {
             setStep={setStep}
             key1="firstName"
             key2="lastName"
+          />
+        )}
+        {step == 3 && (
+          <StepInput
+            label1="Rue :"
+            label2="Code Postale :"
+            label3="Ville :"
+            object={trip}
+            step={step}
+            setStep={setStep}
+            key0="address"
+            key1="street"
+            key2="zipCode"
+            key3="city"
           />
         )}
       </div>

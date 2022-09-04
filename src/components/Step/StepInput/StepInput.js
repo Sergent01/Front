@@ -4,28 +4,24 @@ import styles from "./StepInput.module.scss";
 
 const StepInput = (props) => {
   const [user, setUser] = useState(Object);
-  //   const AddElement = (step, object, lst) => {
-  //     const key = lst[step];
-  //     // object[key] = element;
-  //     // console.log("Je suis object = ", object);
-  //   };
-
-//   useEffect(() => {
-//     AddElement(props.step, props.object, props.lst);
-//   }, []);
+  const [address, setAddress] = useState(Object);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.object[props.key1] = user.firstName
-    props.object[props.key2] = user.lastName
 
-    console.log('====================================');
-    console.log("Je suis props.object = ",props.object);
-    console.log('====================================');
-    props.setStep(props.step + 1)
-    console.log('====================================');
-    console.log("Je suis props.step = ",props.step);
-    console.log('====================================');
+    if (props.key0 == "address") {
+      let obj = {
+        street: address.street,
+        zipCode: address.zipCode,
+        city: address.city,
+      };
+      props.object[props.key0] = obj;
+    } else {
+      props.object[props.key1] = user.firstName;
+      props.object[props.key2] = user.lastName;
+    }
+
+    props.setStep(props.step + 1);
   };
 
   return (
@@ -38,7 +34,9 @@ const StepInput = (props) => {
             placeholder={props.label1}
             required={true}
             onChange={(e) => {
-              setUser({ ...user, firstName: e.target.value });
+              props.key0 != undefined
+                ? setAddress({ ...address, street: e.target.value })
+                : setUser({ ...user, firstName: e.target.value });
             }}
           />
         </div>
@@ -49,12 +47,27 @@ const StepInput = (props) => {
             placeholder={props.label2}
             required={true}
             onChange={(e) => {
-              setUser({ ...user, lastName: e.target.value });
+              props.key0 != undefined
+                ? setAddress({ ...address, zipCode: e.target.value })
+                : setUser({ ...user, lastName: e.target.value });
             }}
           />
         </div>
+        {props.key0 != undefined && (
+          <div className={styles.stepInput__content}>
+            <label>{props.label3}</label>
+            <input
+              type="text"
+              placeholder={props.label3}
+              required={true}
+              onChange={(e) => {
+                setAddress({ ...address, city: e.target.value });
+              }}
+            />
+          </div>
+        )}
         <div className={styles.stepInput__btn}>
-          <input className="btn btn-black" value="M'inscrire" type="submit" />
+          <input className="btn btn-black" value="Validé" type="submit" />
           {/* {error ? <p>{errorMessage}</p> : ""} */}
         </div>
       </form>
