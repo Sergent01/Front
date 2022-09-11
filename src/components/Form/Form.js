@@ -8,10 +8,22 @@ import StepCheck from "../Step/StepCheck/StepCheck";
 
 const Form = () => {
   const [step, setStep] = useState(0);
-  const [array, setArray] = useState([]);
   const [obj, setObj] = useState({});
+  const [state, setState] = useState("");
 
-    console.log("Je suis obj = ",obj);
+  if (step == 7) {
+    parseInt(obj.address.zipCode);
+
+    fetch(`${process.env.API_URL}/survey`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(obj),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log("Je suis data = ", data));
+  }
 
   return (
     <div className={styles.form__main}>
