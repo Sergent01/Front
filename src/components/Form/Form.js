@@ -1,24 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import styles from "./Form.module.scss";
 
 import StepButton from "../Step/StepButton/StepButton";
 import StepInput from "../Step/StepInput/StepInput";
+import StepCheck from "../Step/StepCheck/StepCheck";
 
 const Form = () => {
-  const [step, setStep] = useState(3);
-  const lst = [
-    "situation",
-    "state",
-    "firstName",
-    "lastName",
-    "address",
-    "request",
-    "assistance",
-    "phone",
-    "email",
-  ];
-  var trip = new Object();
+  const [step, setStep] = useState(0);
+  const [array, setArray] = useState({});
+  //   const [sendObj, setSendObj] = useState({});
+
+  let sendObj = {};
+
+  if (step == 7) {
+    console.log("Je suis obj = ",array);
+  }
 
   return (
     <div className={styles.form__main}>
@@ -31,10 +28,11 @@ const Form = () => {
             title="Votre situation"
             btn1="Propriétaire"
             btn2="Locataire"
-            object={trip}
+            array={array}
+            setArray={setArray}
             step={step}
             setStep={setStep}
-            key="situation"
+            isKey="situation"
           />
         )}
         {step == 1 && (
@@ -42,17 +40,19 @@ const Form = () => {
             title="État de votre bien"
             btn1="Terminé"
             btn2="Construction"
-            object={trip}
+            array={array}
+            setArray={setArray}
             step={step}
             setStep={setStep}
-            key="state"
+            isKey="state"
           />
         )}
         {step == 2 && (
           <StepInput
             label1="Votre Prénom :"
             label2="Votre Nom :"
-            object={trip}
+            array={array}
+            setArray={setArray}
             step={step}
             setStep={setStep}
             key1="firstName"
@@ -64,13 +64,46 @@ const Form = () => {
             label1="Rue :"
             label2="Code Postale :"
             label3="Ville :"
-            object={trip}
+            array={array}
+            setArray={setArray}
             step={step}
             setStep={setStep}
             key0="address"
             key1="street"
             key2="zipCode"
             key3="city"
+          />
+        )}
+        {step == 4 && (
+          <StepCheck
+            issue="Avez-vous une de demande en cours auprès de « Maprime Renov » ?"
+            array={array}
+            setArray={setArray}
+            step={step}
+            setStep={setStep}
+            key1="request"
+          />
+        )}
+        {step == 5 && (
+          <StepCheck
+            issue="Avez-vous déjà bénéficié d’une aide Maprime Rénov pour une autre catégorie de travaux ?"
+            array={array}
+            setArray={setArray}
+            step={step}
+            setStep={setStep}
+            key1="assistance"
+          />
+        )}
+        {step == 6 && (
+          <StepInput
+            label1="Numéro :"
+            label2="Email :"
+            array={array}
+            setArray={setArray}
+            step={step}
+            setStep={setStep}
+            key1="phone"
+            key2="email"
           />
         )}
       </div>

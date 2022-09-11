@@ -3,14 +3,11 @@ import React from "react";
 import styles from "./StepButton.module.scss";
 
 const StepButton = (props) => {
-  const AddElement = (step, object, key, element) => {
-    object[key] = element;
-
-    ChangeStep(step, props.setStep);
-  };
-
-  const ChangeStep = (step, setStep) => {
-    setStep(step + 1);
+  const AddElement = (element, key) => {
+    let obj = {};
+    obj[key] = element;
+    props.setArray((array) => [...array, obj]);
+    props.setStep(props.step + 1);
   };
 
   return (
@@ -23,9 +20,7 @@ const StepButton = (props) => {
           <button
             className="btn btn-black"
             type="text"
-            onClick={() =>
-              AddElement(props.step, props.object, props.key, props.btn1)
-            }
+            onClick={() => AddElement(props.btn1, props.isKey)}
           >
             {props.btn1}
           </button>
@@ -34,9 +29,7 @@ const StepButton = (props) => {
           <button
             className="btn btn-black"
             type="text"
-            onClick={() =>
-              AddElement(props.step, props.object, props.key, props.btn2)
-            }
+            onClick={() => AddElement(props.btn2,props.isKey)}
           >
             {props.btn2}
           </button>
