@@ -11,7 +11,8 @@ const StepCheck = (props) => {
     e.preventDefault();
 
     obj[props.key1] = select;
-    props.setArray((array) => [...array, obj]);
+    props.setObj({...props.obj, [props.key1]: select});
+
 
     props.setStep(props.step + 1);
   };

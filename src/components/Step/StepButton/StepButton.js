@@ -4,9 +4,8 @@ import styles from "./StepButton.module.scss";
 
 const StepButton = (props) => {
   const AddElement = (element, key) => {
-    let obj = {};
-    obj[key] = element;
-    props.setArray((array) => [...array, obj]);
+    props.setObj({...props.obj, [key]: element});
+
     props.setStep(props.step + 1);
   };
 
@@ -29,7 +28,7 @@ const StepButton = (props) => {
           <button
             className="btn btn-black"
             type="text"
-            onClick={() => AddElement(props.btn2,props.isKey)}
+            onClick={() => AddElement(props.btn2, props.isKey)}
           >
             {props.btn2}
           </button>

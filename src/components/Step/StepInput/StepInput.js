@@ -9,7 +9,7 @@ const StepInput = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    let obj = {};
+    let obj = {}
     let lilObj = {}
 
 
@@ -19,12 +19,14 @@ const StepInput = (props) => {
         lilObj[props.key3] = address.city;
 
         obj[props.key0] = lilObj
-        props.setArray((array) => [...array, obj]);
+    props.setObj({...props.obj, [props.key0]: lilObj});
+
         
     } else {
         obj[props.key1] = user.firstName;
         obj[props.key2] = user.lastName;
-        props.setArray((array) => [...array, obj]);
+        props.setObj({...props.obj, [props.key1]: user.firstName, [props.key2]: user.lastName});
+
     }
     props.setStep(props.step + 1);
   };
