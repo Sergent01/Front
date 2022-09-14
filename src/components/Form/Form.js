@@ -5,25 +5,30 @@ import styles from "./Form.module.scss";
 import StepButton from "../Step/StepButton/StepButton";
 import StepInput from "../Step/StepInput/StepInput";
 import StepCheck from "../Step/StepCheck/StepCheck";
+import StepResult from "../Step/StepResult/StepResult";
 
 const Form = () => {
   const [step, setStep] = useState(0);
   const [obj, setObj] = useState({});
   const [state, setState] = useState("");
 
-  if (step == 7) {
-    parseInt(obj.address.zipCode);
-
-    fetch(`${process.env.API_URL}/survey`, {
+  const postData = async () => {
+    await fetch(`${process.env.API_URL}/survey`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(obj),
     })
-      .then((response) => response.json())
-      .then((data) => console.log("Je suis data = ", data));
-  }
+      .then((data) => setState(data.status))
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    if (step == 7) {
+      postData();
+    }
+  }, [step]);
 
   return (
     <div className={styles.form__main}>
@@ -114,6 +119,7 @@ const Form = () => {
             key2="email"
           />
         )}
+        {step == 7 && <StepResult result={state}/>}
       </div>
       <div className={styles.form__btn}>
         {/* Dans le cas ou il y a un bouton suivant */}

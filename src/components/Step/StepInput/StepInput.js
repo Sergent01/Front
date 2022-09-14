@@ -9,24 +9,24 @@ const StepInput = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    let obj = {}
-    let lilObj = {}
-
+    let obj = {};
+    let lilObj = {};
 
     if (props.key0 == "address") {
-        lilObj[props.key1] = address.street;
-        lilObj[props.key2] = address.zipCode;
-        lilObj[props.key3] = address.city;
+      lilObj[props.key1] = address.street;
+      lilObj[props.key2] = parseInt(address.zipCode);
+      lilObj[props.key3] = address.city;
 
-        obj[props.key0] = lilObj
-    props.setObj({...props.obj, [props.key0]: lilObj});
-
-        
+      obj[props.key0] = lilObj;
+      props.setObj({ ...props.obj, [props.key0]: lilObj });
     } else {
-        obj[props.key1] = user.firstName;
-        obj[props.key2] = user.lastName;
-        props.setObj({...props.obj, [props.key1]: user.firstName, [props.key2]: user.lastName});
-
+      obj[props.key1] = user.firstName;
+      obj[props.key2] = user.lastName;
+      props.setObj({
+        ...props.obj,
+        [props.key1]: user.firstName,
+        [props.key2]: user.lastName,
+      });
     }
     props.setStep(props.step + 1);
   };

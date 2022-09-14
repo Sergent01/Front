@@ -1,0 +1,25 @@
+.stepResult__main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .stepResult__main_img{
+        img{
+            height: 60px;
+        }
+    }
+    .stepResult__main_text{
+        text-align: center;
+        
+        margin: 10px;
+        padding: 20px;
+        h3{
+            font-size: 0.5em;
+
+            margin: 0 0 20px 0;
+        }
+        p{
+            padding: 20px;
+        }
+    }
+}
