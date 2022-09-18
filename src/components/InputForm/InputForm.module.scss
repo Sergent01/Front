@@ -1,0 +1,25 @@
+.form__group {
+    margin: 20px 0px;
+    input {
+      background: #7fb77e;
+  
+      padding: 5px 5px 5px 20px;
+      height: 40px;
+      width: 260px;
+      border: 1px solid black;
+      transition: 0.3s all;
+  
+      &::placeholder {
+        position: absolute;
+        top: 35%;
+        left: 20px;
+        font-size: 15px;
+        color: black;
+      }
+      &:focus {
+        border-width: 2px;
+        transition: 0.3s all;
+        outline: 0px;
+      }
+    }
+  }
