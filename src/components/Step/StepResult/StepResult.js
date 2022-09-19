@@ -8,7 +8,7 @@ import styles from "./StepResult.module.scss";
 const StepResult = (props) => {
   return (
     <div className={styles.stepResult__main}>
-      {props.result === 201 ? (
+      {props.result.status === "Create" ? (
         <>
           <div className={styles.stepResult__main_img}>
             <img src={Img1.src} alt="valid" />

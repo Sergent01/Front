@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import styles from "./BO.module.scss";
 
+
 const Index = () => {
 
   return (

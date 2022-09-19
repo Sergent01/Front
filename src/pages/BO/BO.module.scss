@@ -1,7 +1,9 @@
 .bo__main{
     display: flex;
+    flex-direction: column;
 
     .bo__text{
         text-align: center;
+        width: 100%;
     }
 }

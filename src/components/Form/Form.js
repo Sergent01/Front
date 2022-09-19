@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 
 import styles from "./Form.module.scss";
 
+import surveyService from "../../service/survey.service";
+
 import StepButton from "../Step/StepButton/StepButton";
 import StepInput from "../Step/StepInput/StepInput";
 import StepCheck from "../Step/StepCheck/StepCheck";
@@ -13,15 +15,9 @@ const Form = () => {
   const [state, setState] = useState("");
 
   const postData = async () => {
-    await fetch(`${process.env.API_URL}/survey`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(obj),
-    })
-      .then((data) => setState(data.status))
-      .catch((err) => console.log(err));
+    await surveyService.postSurvey(obj).then((data) => {
+      setState(data);
+    });
   };
 
   useEffect(() => {
@@ -119,7 +115,7 @@ const Form = () => {
             key2="email"
           />
         )}
-        {step == 7 && <StepResult result={state}/>}
+        {step == 7 && <StepResult result={state} />}
       </div>
       <div className={styles.form__btn}>
         {/* Dans le cas ou il y a un bouton suivant */}

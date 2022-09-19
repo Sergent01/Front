@@ -16,7 +16,6 @@ function MyApp({ Component, pageProps, ...appProps }) {
     authService
       .verifyToken(token)
       .then((data) => {
-        console.log("data = ", data);
         if ((data.auth = true)) {
           setIsAdmin(data.verify);
         } else {
@@ -27,8 +26,6 @@ function MyApp({ Component, pageProps, ...appProps }) {
         console.log(err);
       });
   }, []);
-
-  console.log(isAdmin);
 
   if (
     ["/BO"].includes(appProps.router.pathname) ||
