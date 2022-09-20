@@ -1,0 +1,28 @@
+.manageData__main {
+  display: flex;
+  flex-direction: row;
+
+  border-bottom: 1px solid black;
+
+  table {
+    width: 100%;
+    tbody {
+      tr {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+        margin: 10px;
+
+        td {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 10%;
+          margin: 0 10px;
+          height: 50px;
+        }
+      }
+    }
+  }
+}
