@@ -19,11 +19,16 @@
         tr{
             display: flex;
             justify-content: space-evenly;
+            align-items: center;
             margin: 10px;
 
             th{
                 width: 10%;
                 margin: 10px;
+
+                input{
+                    width: 80px;
+                }
             }
         }
       }

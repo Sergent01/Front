@@ -3,20 +3,17 @@ import React from "react";
 import styles from "./ManageData.module.scss";
 
 const ManageData = (props) => {
-  //   console.log("Je suis props dans ManageData = ", props);
-
   const handleChange = (e) => {
     let id = e.target.id;
     if (e.target.checked) {
       props.setArray([...props.array, id]);
     } else {
-    //   props.setArray([
-    //     props.array.filter(function (isId) {
-    //       return isId !== id;
-    //     }),
-    //   ]);
+      props.setArray(
+        props.array.filter((isId) => {
+          return isId != id;
+        })
+      );
     }
-    console.log("Je suis props.array = ", props.array);
   };
 
   return (

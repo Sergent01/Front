@@ -8,12 +8,13 @@ import ManageData from "../../components/ManageData/ManageData";
 import styles from "./BO.module.scss";
 
 const Index = () => {
-  const [isDelete, setIsDelete] = useState(Boolean);
+  const [isDelete, setIsDelete] = useState(false);
   const [survey, setSurvey] = useState([]);
-  const [idSurvey, setIdSurvey] = useState([])
-  useEffect(() => {
-    const token = localStorage.getItem("token");
+  const [idSurvey, setIdSurvey] = useState([]);
 
+  useEffect(() => {
+    setIsDelete(false);
+    const token = localStorage.getItem("token");
     token &&
       surveyService
         .getAllSurvey(token)
@@ -21,7 +22,22 @@ const Index = () => {
           setSurvey(data);
         })
         .catch((err) => console.log(err));
-  }, []);
+  }, [isDelete]);
+
+  const deleteData = async (idSurvey) => {
+    const token = localStorage.getItem("token");
+
+    for (let i = 0; i < idSurvey.length; i++) {
+      await surveyService
+        .deleteSurvey(idSurvey[i], token)
+        .then(() => {
+          setIsDelete(true);
+        })
+        .catch((err) => {
+          console.log("Je suis err = ", err);
+        });
+    }
+  };
 
   return (
     <div className={styles.bo__main}>
@@ -32,8 +48,16 @@ const Index = () => {
         <table>
           <thead>
             <tr>
-              <th></th>
-            <th>Téléphone</th>
+              <th>
+                {idSurvey.length > 0 && (
+                  <input
+                    onClick={() => deleteData(idSurvey)}
+                    value="Supprimer"
+                    className="btn btn-black"
+                  />
+                )}
+              </th>
+              <th>Téléphone</th>
               <th>Email</th>
               <th>Nom</th>
               {/* <th>Rue</th> */}
@@ -47,7 +71,12 @@ const Index = () => {
         {survey &&
           survey.map((isData) => (
             <div key={isData._id}>
-              <ManageData array={idSurvey} setArray={setIdSurvey} data={isData} />
+              <ManageData
+                setIsDelete={setIsDelete}
+                array={idSurvey}
+                setArray={setIdSurvey}
+                data={isData}
+              />
             </div>
           ))}
       </div>

@@ -22,4 +22,12 @@ export default {
       .then((data) => data.json())
       .catch((err) => console.log(err));
   },
+  deleteSurvey(id, token) {
+    return fetch(`${process.env.API_URL}survey/delete/${id}`, {
+      method: "DELETE",
+      headers: {
+        authorization: token,
+      },
+    }).then((res) => res.json());
+  },
 };
