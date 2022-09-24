@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 import surveyService from "../../service/survey.service";
+import withAuth from "../../HOC/WithAuth";
 
 import ManageData from "../../components/ManageData/ManageData";
 
@@ -84,4 +85,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default withAuth(Index);
