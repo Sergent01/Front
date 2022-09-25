@@ -1,20 +1,37 @@
-.headerBO__main{
+.headerBO__main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+  height: 100vh;
+
+  background-color: black;
+
+  .headerBO__title {
+    border-bottom: 1px #7fb77e solid;
+
+    width: 100%;
+  }
+
+  .headerBO__button {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
     justify-content: space-between;
-    height: 100vh;
 
-    background-color: black;
-
-    .headerBO__title{
-        border-bottom: 1px #7fb77e solid;
-
-        width: 100%;
+    width: 100%;
+    height: 200px;
+    
+    .headerBO__btn_logout {
+      cursor: pointer;
     }
 
-    .headerBO__button{
-        cursor: pointer;
+    .headerBO__btn_redirect {
+      cursor: pointer;
     }
+  }
+
+  .headerBO__logout {
+    color: white;
+  }
 }
